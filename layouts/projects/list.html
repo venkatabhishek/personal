@@ -1,4 +1,15 @@
 {{ define "main" }}
 {{ partial "navbar.html" . }}
-this is projects
+
+{{ $style := resources.Get "/sass/projects.scss" | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
+<div class="container top">
+    <div class="headline">
+
+        <h1>Projects</h1>
+
+    </div>
+</div>
+
 {{ end }}

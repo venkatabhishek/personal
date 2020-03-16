@@ -1,5 +1,35 @@
 {{ define "main" }}
+
 {{ partial "navbar.html" . }}
 
-About
+{{ $style := resources.Get "/sass/about.scss" | resources.ToCSS }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
+<div class="container top">
+
+    <div class="headline">
+
+        <h1>
+            Hi, my name is
+            <span class="highlight">
+                Abhishek Venkat
+            </span>
+
+        </h1>
+
+    </div>
+
+    <h3 class="subline">
+        I'm a <span class="highlight">computer science</span> student at the University of Maryland, College
+        Park.
+
+        <br /><br />
+
+        I am interested in all forms of software development, but I particularly enjoy
+         <span class="highlight">Web Development</span> and <span class="highlight">Programming Language Design</span>
+    </h3>
+
+</div>
+
+
 {{ end }}
