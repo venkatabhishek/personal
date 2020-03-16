@@ -1,0 +1,9 @@
+<nav>
+    <div class="logo">Abhishek Venkat</div>
+
+    <div class="links">
+        {{ range $a := (slice "about" "projects" "contact") }}
+            <a class="link" href="{{ printf "%s%s" "/" $a }}">{{ $a }}</a>
+        {{ end }}
+    </div>
+</nav>
