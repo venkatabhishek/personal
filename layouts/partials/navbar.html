@@ -3,7 +3,7 @@
 
     <div class="links">
         {{ range $a := (slice "about" "projects" "contact") }}
-            <a class="link" href="{{ printf "%s%s" "/" $a }}">{{ $a }}</a>
+            <a class="link" href="{{ printf "%s%s" "/" $a }}">{{ $a | title }}</a>
         {{ end }}
     </div>
 </nav>

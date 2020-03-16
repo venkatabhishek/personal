@@ -7,7 +7,41 @@
 <div class="container top">
     <div class="headline">
 
-        <h1>Projects</h1>
+        <h1>My <span class="highlight">Projects</span></h1>
+
+
+        <div class="projects">
+
+            {{ range .Pages }}
+            
+                <div class="project">
+        
+                    <img src="/images/{{ .Params.Image }}" alt="{{ .Title }}" 
+                        {{ if .Params.fill}}
+                        style="width: 100%;"
+                        {{ end }}
+                        >
+                    
+                    <div class="project-overlay">
+                        <div class="description">
+                            <div class="title-desc">{{ .Params.Title }} </div> <br />
+                            {{ .Params.Description }}
+                            <br/>
+                            <a href="{{ .Params.Code }}"> <button class="button">Read more</button></a>
+                            <div class="badges">
+                                {{ range .Params.Tech }}
+                                    <span class="badge"> {{ . }} </span>
+                                {{ end }}
+                            </div>
+    
+                        </div>
+                    </div>
+
+                </div>
+
+            {{ end }}
+
+        </div>
 
     </div>
 </div>
