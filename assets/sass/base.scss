@@ -1,111 +1,197 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 $bg-color: #1f1f1f;
 $font-color: #fff;
-$font: 'Montserrat', sans-serif;
+$font: "Montserrat", sans-serif;
 
-html, body{
-    margin: 0;
-    background: $bg-color;
-    color: $font-color;
-    font-family: $font;
+html,
+body {
+  margin: 0;
+  background: $bg-color;
+  color: $font-color;
+  font-family: $font;
 }
 
 // navigation
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    padding-top: 100px;
-
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding-top: 100px;
 }
 
-.logo{
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: .75px;
+.logo {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.75px;
 }
 
-.links{
-    display: flex;
+.links {
+  display: flex;
 }
 
-.link{
-    margin: 0 15px;
-    letter-spacing: 1.78px;
+.link {
+  margin: 0 15px;
+  letter-spacing: 1.78px;
 }
 
 .link:after {
-    content: '';
-    width: 0;
-    height: 3px;
-    display: block;
-    margin-top: 5px;
-    transition: all .2s ease;
-    background: $font-color;
-    -webkit-transition: all .2s ease;
+  content: "";
+  width: 0;
+  height: 3px;
+  display: block;
+  margin-top: 5px;
+  transition: all 0.2s ease;
+  background: $font-color;
+  -webkit-transition: all 0.2s ease;
 }
 
 .link:hover:after {
-    width: 100%;
-    left: 0;
-    background: $font-color;
+  width: 100%;
+  left: 0;
+  background: $font-color;
 }
 
+// mobile navigation
+
+.mobile {
+  display: none;
+  position: relative;
+  z-index: 3;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  background-color: $font-color;
+  transition: all 0.3s ease;
+
+  .link{
+    $m: 10px;
+    color: $bg-color;
+    margin-top: $m;
+    margin-bottom: $m;
+  }
+}
+
+.menu-icon {
+  $size: 30px;
+  height: $size;
+  width: $size;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  &__line {
+    height: 2px;
+    width: $size;
+    display: block;
+    background-color: $font-color;
+    margin-bottom: 4px;
+    transition: transform 0.2s ease, background-color 0.5s ease;
+  }
+  &__line-left {
+    width: $size / 2;
+  }
+  &__line-right {
+    width: $size / 2;
+    float: right;
+  }
+}
+
+.active{
+	.menu-icon{
+		&__line{
+            transform: translateX(0px) rotate(-45deg);
+            background-color: #000;
+		}
+		&__line-left{
+			transform: translateX(1px) rotate(45deg);
+		}
+		&__line-right{
+			transform: translateX(-2px) rotate(45deg);
+		}
+    }
+    &.overlay{
+        display: flex;
+    }
+
+}
 
 // accessory
 
 .highlight {
-    color: #ED4337;
+  color: #ed4337;
 }
 
-.container{
-    padding-left: 160px;
-    padding-right: 160px;
+.container {
+  padding-left: 160px;
+  padding-right: 160px;
 }
 
-a{
-    text-decoration:  none;
-    color: $font-color;
+a {
+  text-decoration: none;
+  color: $font-color;
 }
 
 svg {
-    
-    color: $bg-color;
+  color: $bg-color;
 }
 
-.top{
-    margin-top: 100px;
-    margin-bottom: 50px;
+.top {
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 // media query - 600px or smaller
 
 @media only screen and (max-width: 650px) {
-    .links{
+  .links {
+    display: none;
+  }
+  .container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .mobile {
+    display: block;
+  }
+}
+
+// media query - 400px or smaller
+@media only screen and (max-width: 400px) {
+    .logo{
         display: none;
     }
-    .container{
-        padding-left: 80px;
-        padding-right: 80px;
+    .mobile{
+        margin-bottom: 10px;
     }
-  }
+    .top{
+        margin-top: 0;
+    }
+    .container{
+    }
+}
 
 // scroll bar
 
-::-webkit-scrollbar
-{
-  width: 10px;  /* for vertical scrollbars */
+::-webkit-scrollbar {
+  width: 10px; /* for vertical scrollbars */
   height: 12px; /* for horizontal scrollbars */
 }
 
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
   background: $bg-color;
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: $font-color;
 }
+
+

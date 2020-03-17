@@ -5,6 +5,7 @@ $red: #ed4337;
   font-size: 28px;
 }
 
+
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -75,4 +76,12 @@ $red: #ed4337;
   bottom: 10px;
   left: 10px;
 
+}
+
+// media query - 400px or smaller
+@media only screen and (max-width: 400px) {
+  .special{
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
