@@ -165,7 +165,7 @@ svg {
 }
 
 // media query - 400px or smaller
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 440px) {
     .logo{
         display: none;
     }
@@ -176,6 +176,10 @@ svg {
         margin-top: 0;
     }
     .container{
+      $s: 30px;
+      padding-left: $s;
+      padding-right: $s;
+      padding-bottom: 20px;
     }
 }
 
