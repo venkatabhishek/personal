@@ -9,7 +9,7 @@
 
     <div class="headline">
 
-        <h1>
+        <h1 class="hello-line">
             Hi, my name is
             <span class="highlight">
                 Abhishek Venkat
@@ -30,6 +30,39 @@
     </h3>
 
 </div>
+
+
+<script>
+
+    window.onload = function () {
+
+        let t = anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 1000
+        });
+
+
+        t.add({
+            targets: ".subline",
+            marginLeft: 0,
+            opacity: 1,
+        }).add({
+            targets: ".logo",
+            marginLeft: 0,
+            opacity: 1,
+            duration: 1200
+        }, 300).add({
+            targets: ".links",
+            marginTop: 0,
+            opacity: 1,
+            duration: 1400
+        }, 500)
+
+
+    }
+
+
+</script>
 
 
 {{ end }}
